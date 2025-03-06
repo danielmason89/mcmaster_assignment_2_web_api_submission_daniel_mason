@@ -1,0 +1,31 @@
+### 1. Create a new order
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "size": "large",
+  "toppings": ["pepperoni", "mushrooms"],
+  "quantity": 2
+}
+
+### 2. Retrieve all orders
+GET http://localhost:3000/api/orders
+
+### 3. Retrieve a specific order (replace :orderId with a valid one)
+GET http://localhost:3000/api/orders/:orderId
+
+### 4. Update an existing order
+PUT http://localhost:3000/api/orders/:orderId
+Content-Type: application/json
+
+{
+  "size": "medium",
+  "toppings": ["cheese", "mushrooms"],
+  "quantity": 1
+}
+
+### 5. Delete an existing order
+DELETE http://localhost:3000/api/orders/:orderId
+
+### 6. Complete an existing order
+POST http://localhost:3000/api/orders/:orderId/complete
