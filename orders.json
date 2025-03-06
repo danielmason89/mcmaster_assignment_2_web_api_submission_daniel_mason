@@ -1,0 +1,9 @@
+[
+  {
+    "orderId": 123,
+    "size": "large",
+    "toppings": ["pepperoni", "mushrooms"],
+    "quantity": 2,
+    "status": "pending"
+  }
+]
