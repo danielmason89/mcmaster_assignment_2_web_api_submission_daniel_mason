@@ -13,6 +13,10 @@ app.use(express.static('public'));
 
 app.use('/api/orders', orderRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Pizzeria Orders API!');
+});
+
 // Catch-all for 404
 app.use((req, res) => {
   res.status(404).json({ message: "Error, This path doesn't exit"})
