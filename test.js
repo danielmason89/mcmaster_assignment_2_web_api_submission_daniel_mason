@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-const BlogPost = require('./models/BlogPost');
+// const BlogPost = require('./models/BlogPost');
 
-mongoose.connect('mongodb://localhost/my_database');
+// mongoose.connect('mongodb://localhost/my_database');
 
 // BlogPost.create({
 //     title: 'The Mythbuster’s Guide to Saving Money on Energy Bills',

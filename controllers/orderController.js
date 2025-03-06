@@ -1,5 +1,5 @@
-const { v4: uuidv4 } = require('uuid');
-const { orders } = require('../models/orderModel');
+import { v4 as uuidv4 } from "uuid";
+import { orders } from "../models/orderModel.js";
 
 // Example: could be extracted to a utility file or kept here
 function calculateTotalPrice(order) {
@@ -10,7 +10,7 @@ function calculateTotalPrice(order) {
 }
 
 // CREATE (POST) /api/orders
-exports.createOrder = (req, res) => {
+export function createOrder(req, res) {
   const { size, toppings, quantity } = req.body;
 
   // Validate input
@@ -31,12 +31,12 @@ exports.createOrder = (req, res) => {
 };
 
 // READ (GET) /api/orders
-exports.getAllOrders = (req, res) => {
+export function getAllOrders(req, res) {
   return res.json(orders);
 };
 
 // READ (GET) /api/orders/:orderId
-exports.getSingleOrder = (req, res) => {
+export function getSingleOrder(req, res) {
   const { orderId } = req.params;
   const order = orders.find(o => o.orderId === orderId);
 
@@ -47,7 +47,7 @@ exports.getSingleOrder = (req, res) => {
 };
 
 // UPDATE (PUT) /api/orders/:orderId
-exports.updateOrder = (req, res) => {
+export function updateOrder(req, res) {
   const { orderId } = req.params;
   const { size, toppings, quantity } = req.body;
 
@@ -75,7 +75,7 @@ exports.updateOrder = (req, res) => {
 };
 
 // DELETE (DELETE) /api/orders/:orderId
-exports.deleteOrder = (req, res) => {
+export function deleteOrder(req, res) {
   const { orderId } = req.params;
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
 
@@ -88,7 +88,7 @@ exports.deleteOrder = (req, res) => {
 };
 
 // COMPLETE (POST) /api/orders/:orderId/complete
-exports.completeOrder = (req, res) => {
+export function completeOrder(req, res) {
   const { orderId } = req.params;
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
 

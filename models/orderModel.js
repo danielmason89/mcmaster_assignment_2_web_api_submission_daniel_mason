@@ -1,9 +1,9 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from "uuid";
 
-let orders = [];
+export let orders = [];
 
 // Create an order
-function createOrder(data) {
+export function createOrder(data) {
   const { size, toppings, quantity } = data;
   if (!size || !Array.isArray(toppings) || !quantity) {
     return { error: 'Invalid order data' };
@@ -22,12 +22,12 @@ function createOrder(data) {
 }
 
 // Retrieve an order
-function getOrder(orderId) {
+export function getOrder(orderId) {
   return orders.find(o => o.orderId === orderId);
 }
 
 // Update an order
-function updateOrder(orderId, data) {
+export function updateOrder(orderId, data) {
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
   if (orderIndex === -1) return { order: null };
 
@@ -46,7 +46,7 @@ function updateOrder(orderId, data) {
 }
 
 // Delete an order
-function deleteOrder(orderId) {
+export function deleteOrder(orderId) {
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
   if (orderIndex === -1) return null;
 
@@ -55,7 +55,7 @@ function deleteOrder(orderId) {
 }
 
 // Complete an order
-function completeOrder(orderId) {
+export function completeOrder(orderId) {
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
   if (orderIndex === -1) return null;
 
@@ -77,12 +77,3 @@ function completeOrder(orderId) {
     message: 'Order completed'
   };
 }
-
-module.exports = {
-  orders,
-  createOrder,
-  getOrder,
-  updateOrder,
-  deleteOrder,
-  completeOrder
-};
