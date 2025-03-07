@@ -8,12 +8,18 @@ Content-Type: application/json
   "quantity": 3
 }
 
+###
+
 ### 2. Retrieve all orders
 GET http://localhost:3000/api/orders
+
+###
 
 ### 3. Retrieve a specific order
 # Replace :orderId with an actual order ID returned from step #1 or #2
 GET http://localhost:3000/api/orders/f3f37a3e-4407-4eff-a140-c8aeb0066666
+
+###
 
 ### 4. Update an existing order
 # Replace :orderId with the ID to update
@@ -26,9 +32,13 @@ Content-Type: application/json
   "quantity": 4
 }
 
+###
+
 ### 5. Delete an existing order
 # Replace :orderId with the ID to delete
 DELETE http://localhost:3000/api/orders/:orderId
+
+###
 
 ### 6. Complete an existing order
 # Replace :orderId with an active order ID

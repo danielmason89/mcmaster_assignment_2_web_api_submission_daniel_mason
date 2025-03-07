@@ -2,7 +2,20 @@
   {
     "orderId": "f3f37a3e-4407-4eff-a140-c8aeb0066666",
     "size": "large",
-    "toppings": ["pepperoni", "mushrooms"],
+    "toppings": [
+      "pepperoni",
+      "mushrooms"
+    ],
+    "quantity": 3,
+    "status": "pending"
+  },
+  {
+    "orderId": "a671e75c-d16a-4d3b-9ecb-59bd4fab0a91",
+    "size": "large",
+    "toppings": [
+      "pepperoni",
+      "mushrooms"
+    ],
     "quantity": 3,
     "status": "pending"
   }
