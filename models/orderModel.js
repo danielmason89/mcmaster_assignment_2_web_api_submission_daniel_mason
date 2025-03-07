@@ -1,3 +1,7 @@
+/**
+ * This file simulates a database or data model layer.
+ * You can optionally load from 'orders.json' or just stick to an in-memory array.
+ */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
