@@ -1,6 +1,22 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from "uuid";
 
-export let orders = [];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const ordersFilePath = path.join(__dirname, '../orders.json');
+
+const orders = [];
+export default orders;
+try {
+  const fileData = fs.readFileSync(ordersFilePath, 'utf-8');
+  const parsedData = JSON.parse(fileData);
+  orders.push(...parsedData);
+} catch (err) {
+  console.error('Error reading orders.json:', err);
+}
 
 // Create an order
 export function createOrder(data) {

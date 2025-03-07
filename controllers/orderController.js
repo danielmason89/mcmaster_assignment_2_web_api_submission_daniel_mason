@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { orders } from "../models/orderModel.js";
+import orders from "../models/orderModel.js";
 
 // Example: could be extracted to a utility file or kept here
 function calculateTotalPrice(order) {

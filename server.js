@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
+// Routes
 app.use('/api/orders', orderRoutes);
 
 app.get('/', (req, res) => {
