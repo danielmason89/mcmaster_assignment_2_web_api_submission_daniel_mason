@@ -1,4 +1,5 @@
 ### 1. Create a new order
+
 POST http://localhost:3000/api/orders
 Content-Type: application/json
 
@@ -9,14 +10,17 @@ Content-Type: application/json
 }
 
 ### 2. Retrieve all orders
+
 GET http://localhost:3000/api/orders
 
 ### 3. Retrieve a specific order
 # Replace :orderId with an actual order ID returned from step #1 or #2
+
 GET http://localhost:3000/api/orders/:orderId
 
 ### 4. Update an existing order
 # Replace :orderId with the ID to update
+
 PUT http://localhost:3000/api/orders/:orderId
 Content-Type: application/json
 
@@ -28,8 +32,10 @@ Content-Type: application/json
 
 ### 5. Delete an existing order
 # Replace :orderId with the ID to delete
+
 DELETE http://localhost:3000/api/orders/:orderId
 
 ### 6. Complete an existing order
 # Replace :orderId with an active order ID
+
 POST http://localhost:3000/api/orders/:orderId/complete
