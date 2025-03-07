@@ -11,10 +11,10 @@ import {
 const router = express.Router();
 
 // 1. POST /api/orders
-router.post('/', createOrder);
-
 // 2. GET /api/orders
-router.get('/', getAllOrders);
+router.route("/")
+      .post(createOrder)
+      .get(getAllOrders);
 
 // 3. GET /api/orders/:orderId
 // 4. PUT /api/orders/:orderId

@@ -1,6 +1,4 @@
 import express from "express";
-// import path from "path";
-
 import orderRoutes from "./routes/orderRoutes.js";
 
 const app = express();
@@ -8,7 +6,6 @@ const PORT = 3000;
 
 // Middleware
 app.use(express.json());
-
 app.use(express.static('public'));
 
 // Routes
