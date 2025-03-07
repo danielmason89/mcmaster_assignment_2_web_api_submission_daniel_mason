@@ -34,7 +34,7 @@ try {
 /**
  * Helper function: Saves the current `orders` array back to orders.json.
  */
-function saveOrdersToFile() {
+export function saveOrdersToFile() {
   try {
     fs.writeFileSync(
       ordersFilePath,

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import orders from "../models/orderModel.js";
+import orders, { saveOrdersToFile } from "../models/orderModel.js";
 
 /**
  * Utility function to calculate total price
@@ -34,8 +34,10 @@ export function createOrder(req, res) {
     status: "pending",
   };
 
-  // Push to our in-memory array
+  // Push to in-memory array
   orders.push(newOrder);
+  // Persist changes to disk
+  saveOrdersToFile();
 
   return res.status(201).json(newOrder);
 }
@@ -77,7 +79,7 @@ export function updateOrder(req, res) {
     return res.status(404).json({ error: "Order not found" });
   }
 
-  // Basic checks (only validate fields that are provided)
+  // Validate fields if provided
   if (size && typeof size !== "string") {
     return res.status(400).json({ error: "Invalid size" });
   }
@@ -88,10 +90,13 @@ export function updateOrder(req, res) {
     return res.status(400).json({ error: "Invalid quantity" });
   }
 
-  // Update fields
+  // Update only the provided fields
   if (size) orders[orderIndex].size = size;
   if (toppings) orders[orderIndex].toppings = toppings;
   if (quantity !== undefined) orders[orderIndex].quantity = quantity;
+
+  // Persist changes to disk
+  saveOrdersToFile();
 
   return res.json(orders[orderIndex]);
 }
@@ -110,7 +115,8 @@ export function deleteOrder(req, res) {
   }
 
   orders.splice(orderIndex, 1);
-  // 204 = No Content
+  // Persist changes to disk
+  saveOrdersToFile();
   return res.status(204).send();
 }
 
@@ -131,6 +137,7 @@ export function completeOrder(req, res) {
 
   // Remove it from active orders
   orders.splice(orderIndex, 1);
+  saveOrdersToFile();
 
   return res.json({
     ...orderToComplete,

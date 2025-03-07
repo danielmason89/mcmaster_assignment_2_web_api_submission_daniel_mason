@@ -1,5 +1,5 @@
 import express from "express";
-import orderRoutes from "./routes/orderRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 
 const app = express();
 const PORT = 3000;
@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
-app.use('/api/orders', orderRoutes);
+app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Pizzeria Orders API!');
