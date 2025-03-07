@@ -5,7 +5,7 @@ Content-Type: application/json
 {
   "size": "large",
   "toppings": ["pepperoni", "mushrooms"],
-  "quantity": 2
+  "quantity": 3
 }
 
 ### 2. Retrieve all orders
