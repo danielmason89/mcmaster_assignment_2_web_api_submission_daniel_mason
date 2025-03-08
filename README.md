@@ -86,4 +86,5 @@ By default, the server listens on port 3000.
 - **204**: The resource was successfully deleted (no content returned).  
 - **400**: Bad request (validation errors, malformed data).  
 - **404**: Resource not found (invalid order ID, etc.).
-  
+
+---
