@@ -14,12 +14,11 @@ const __dirname = path.dirname(__filename);
 const ordersFilePath = path.join(__dirname, '../orders.json');
 
 /**
- * In-memory array to store orders.
- * We'll try to load any existing data from orders.json.
+ * In-memory array to store orders, and to load any existing data from orders.json.
  */
 const orders = [];
 
-// Load existing data from orders.json at startup, (if the file exists)
+// Load existing data from orders.json at startup
 try {
   const fileData = fs.readFileSync(ordersFilePath, 'utf-8');
   const parsedData = JSON.parse(fileData);
@@ -48,7 +47,7 @@ export function saveOrdersToFile() {
 }
 
 /**
- * Create an order in the in-memory array, (and persist to file).
+ * Create an order in the in-memory array.
  */
 export function createOrder(data) {
   const { size, toppings, quantity } = data;
@@ -82,7 +81,7 @@ export function getOrder(orderId) {
 }
 
 /**
- * Update an order by ID, (and persist to file).
+ * Update an order by ID.
  */
 export function updateOrder(orderId, data) {
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
@@ -107,7 +106,7 @@ export function updateOrder(orderId, data) {
 }
 
 /**
- * Delete an order by ID, (and persist to file).
+ * Delete an order by ID.
  */
 export function deleteOrder(orderId) {
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
@@ -122,7 +121,7 @@ export function deleteOrder(orderId) {
 }
 
 /**
- * Complete an order by ID, (and persist to file).
+ * Complete an order by ID.
  * Returns an order summary with totalPrice, then removes it from active orders.
  */
 export function completeOrder(orderId) {

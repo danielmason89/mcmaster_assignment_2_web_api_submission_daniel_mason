@@ -1,54 +1,89 @@
-# API Documentation
+# Assignment #2: Web API Documentation – Pizza Order System
 
-Running the Project
-Install dependencies (if not already done):
-bash
-Copy
-Edit
+## Table of Contents
+
+- [Assignment #2: Web API Documentation – Pizza Order System](#assignment-2-web-api-documentation--pizza-order-system)
+  - [Table of Contents](#table-of-contents)
+  - [Running the Project](#running-the-project)
+    - [Install Dependencies](#install-dependencies)
+  - [Endpoints Overview](#endpoints-overview)
+  - [Endpoints Summary](#endpoints-summary)
+  - [HTTP Status Codes](#http-status-codes)
+
+---
+
+## Running the Project
+
+### Install Dependencies
+
+```bash
 npm install
-Start the server:
-bash
-Copy
-Edit
+
+- Start the Server -
+
 npm start
-By default, the server starts on port 3000.
-Test endpoints:
-Open pizza_api_tests.rest in VS Code.
-Click on “Send Request” (the small “Send Request” text above each request).
-Inspect the response in the REST client window.
 
-POST /api/orders
-POST
-Create (place) a new pizza order.
+By default, the server listens on port 3000.
 
-GET /api/orders
-GET
-Retrieve (list) all pizza orders.
+- Test Endpoints -
 
-GET /api/orders/:orderId
-GET
-Retrieve a specific pizza order by its orderId.
+1. Open the file pizza_api_tests.rest in VS Code.
+2. Click on "Send Request" (the small text above each request).
+3. Inspect the response in the REST client pane.
+```
 
-PUT /api/orders/:orderId
-PUT
-Modify (update) an existing pizza order.
+## Endpoints Overview
 
-DELETE /api/orders/:orderId
-DELETE
-Cancel (delete) an existing pizza order.
+1. **Create (Place) a New Order**  
+   - **Endpoint:** `POST /api/orders`  
+   - **HTTP Method:** **POST**  
+   - **Description:** Creates a new pizza order.
 
-POST /api/orders/:orderId/complete
-POST
-Mark an order as completed (and, per assignment instructions, remove it from the store and calculate/return an order summary).
+2. **Retrieve All Orders**  
+   - **Endpoint:** `GET /api/orders`  
+   - **HTTP Method:** **GET**  
+   - **Description:** Retrieves a list of all pizza orders.
 
-HTTP Status Codes
+3. **Retrieve a Specific Order**  
+   - **Endpoint:** `GET /api/orders/:orderId`  
+   - **HTTP Method:** **GET**  
+   - **Description:** Retrieves the details of a specific pizza order by its `orderId`.
 
-201: A resource (order) was successfully created.
+4. **Update an Existing Order**  
+   - **Endpoint:** `PUT /api/orders/:orderId`  
+   - **HTTP Method:** **PUT**  
+   - **Description:** Modifies an existing pizza order.
 
-200: Successful GET/PUT/POST operation.
+5. **Delete an Existing Order**  
+   - **Endpoint:** `DELETE /api/orders/:orderId`  
+   - **HTTP Method:** **DELETE**  
+   - **Description:** Cancels (deletes) an existing pizza order.
 
-204: The resource was successfully deleted (no content returned).
+6. **Complete an Existing Order**  
+   - **Endpoint:** `POST /api/orders/:orderId/complete`  
+   - **HTTP Method:** **POST**  
+   - **Description:** Marks an order as completed, removes it from active orders, and returns an order summary (including total price).
 
-400: Bad request (validation errors, malformed data).
+---
 
-404: Resource not found (invalid order ID, etc.).
+## Endpoints Summary
+
+| **Endpoint**                     | **Method** | **Description**                                                 | **Request Body Example**                                            | **Response**                                    |
+|---------------------------------|-----------|-----------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------|
+| `/api/orders`                   | **POST**   | Create a new order                                              | `{ "size": "large", "toppings": ["pepperoni"], "quantity": 2 }`     | Returns the created order object               |
+| `/api/orders`                   | **GET**    | Retrieve all orders                                             | None                                                                | Returns array of orders                        |
+| `/api/orders/:orderId`          | **GET**    | Retrieve a single order by ID                                   | None                                                                | Returns the order object                       |
+| `/api/orders/:orderId`          | **PUT**    | Update an existing order                                        | Any subset of `{ "size": "...", "toppings": [...], "quantity": # }` | Returns the updated order object               |
+| `/api/orders/:orderId`          | **DELETE** | Delete an existing order                                        | None                                                                | Returns **204 No Content**                     |
+| `/api/orders/:orderId/complete` | **POST**   | Complete an order, remove it from active, and return a bill      | None                                                                | Returns a summary with `totalPrice`            |
+
+---
+
+## HTTP Status Codes
+
+- **201**: A resource (order) was successfully created.  
+- **200**: Successful `GET/PUT/POST` operation.  
+- **204**: The resource was successfully deleted (no content returned).  
+- **400**: Bad request (validation errors, malformed data).  
+- **404**: Resource not found (invalid order ID, etc.).
+  

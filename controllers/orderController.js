@@ -111,7 +111,7 @@ export function deleteOrder(req, res) {
   // Find the index
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
   if (orderIndex === -1) {
-    return res.status(404).json({ error: "Order not found" });
+    return res.status(404).json({ error: "Order not found." });
   }
 
   orders.splice(orderIndex, 1);
@@ -129,7 +129,7 @@ export function completeOrder(req, res) {
 
   const orderIndex = orders.findIndex(o => o.orderId === orderId);
   if (orderIndex === -1) {
-    return res.status(404).json({ error: "Order not found" });
+    return res.status(404).json({ error: "Order not found." });
   }
 
   const orderToComplete = orders[orderIndex];
@@ -142,6 +142,6 @@ export function completeOrder(req, res) {
   return res.json({
     ...orderToComplete,
     totalPrice,
-    message: "Order completed and removed from active orders.",
+    message: "Order completed.",
   });
 }
