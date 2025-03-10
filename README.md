@@ -21,7 +21,7 @@
 npm install
 ```
 
-In order to start the server, in the command below in the terminal after running the above command.
+In order to start the server, type the command below in the terminal after running the above command.
 
 ```bash
 npm start
