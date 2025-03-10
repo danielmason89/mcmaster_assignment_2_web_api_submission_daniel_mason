@@ -6,6 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Running the Project](#running-the-project)
     - [Install Dependencies](#install-dependencies)
+    - [Test Endpoints](#test-endpoints)
   - [Endpoints Overview](#endpoints-overview)
   - [Endpoints Summary](#endpoints-summary)
   - [HTTP Status Codes](#http-status-codes)
@@ -18,15 +19,19 @@
 
 ```bash
 npm install
+```
 
-- Start the Server -
+In order to start the server, in the command below in the terminal after running the above command.
 
+```bash
 npm start
+```
 
 By default, the server listens on port 3000.
 
-- Test Endpoints -
+### Test Endpoints
 
+```bash
 1. Open the file pizza_api_tests.rest in VS Code.
 2. Click on "Send Request" (the small text above each request).
 3. Inspect the response in the REST client pane.
